@@ -1,50 +1,9 @@
-// "use client";
-// import { useState } from "react";
-// import styles from "./page.module.css";
-
-// export default function Home() {
-//   const [todos, setTodos] = useState(["a", "b"]);
-//   const [newTodo, setNewTodo] = useState("");
-
-//   const addTodoHandler = () => {
-//     setTodos([...todos, newTodo]);
-//   };
-//   const deleteHandler = () => {
-//     alert("Are you sure to delete ?");
-//   };
-//   return (
-//     <div>
-//       <div className={styles["todo-container"]}>
-//         <h1>To-Do list</h1>
-//         <div className={styles.flex}>
-//           <input
-//             type="text"
-//             placeholder="Add a new task"
-//             onChange={(e) => setNewTodo(e.target.value)}
-//           />
-//           <button onClick={addTodoHandler}>Add</button>
-//         </div>
-//         <div className={styles.flex}>
-//           <button>All</button>
-//           <button>Active</button>
-//           <button>Completed</button>
-//           <button onClick={deleteHandler}>Delete</button>
-//         </div>
-//         <div>
-//           {todos.map((todo, index) => {
-//             return <p key={index}>{todo}</p>;
-//           })}
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const [todos, setTodos] = useState(["a", "b"]);
+  const [todos, setTodos] = useState(["g"]);
   const [newTodo, setNewTodo] = useState("");
 
   const addTodoHandler = () => {
@@ -54,27 +13,34 @@ export default function Home() {
     alert("are you sure to delete ?");
   };
   return (
-    <div className="body-width">
+    <div className={styles["body-width"]}>
       <div className={styles[`todo-container`]}>
         <h1>To-Do list</h1>
         <div className={styles.flex}>
           <input
+            className={styles.input}
             type="text"
             placeholder="Add a new task"
             onChange={(e) => setNewTodo(e.target.value)}
           />
-          <button onClick={addTodoHandler}>Add</button>
+          <button className={styles.addButton} onClick={addTodoHandler}>
+            Add
+          </button>
         </div>
         <div className={styles.flex}>
-          <button>All</button>
-          <button>Active</button>
-          <button>Completed</button>
-          <button onClick={deleteHandler}>Delete</button>
+          <button className={styles.allBtn}>All</button>
+          <button className={styles.allBtn}>Active</button>
+          <button className={styles.allBtn}>Completed</button>
         </div>
         <div>
-          {todos.map((todo, index) => {
+          <p className={styles.info}>No tasks yet.Add one above!</p>
+          {/* {todos.map((todo, index) => {
             return <p key={index}>{todo}</p>;
-          })}
+          })} */}
+        </div>
+        <div>
+          <p></p>
+          <a href="">Pinecone academy</a>
         </div>
       </div>
     </div>
