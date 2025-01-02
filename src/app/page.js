@@ -5,13 +5,12 @@ import styles from "./page.module.css";
 export default function Home() {
   const [todos, setTodos] = useState(["g"]);
   const [newTodo, setNewTodo] = useState("");
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const addTodoHandler = () => {
     setTodos([...todos, newTodo]);
   };
-  const deleteHandler = () => {
-    alert("are you sure to delete ?");
-  };
+
   return (
     <div className={styles["body-width"]}>
       <div className={styles[`todo-container`]}>
@@ -27,10 +26,31 @@ export default function Home() {
             Add
           </button>
         </div>
-        <div className={styles.flex}>
-          <button className={styles.allBtn}>All</button>
-          <button className={styles.allBtn}>Active</button>
-          <button className={styles.allBtn}>Completed</button>
+        <div className={`${styles.flex} ${styles.allBtn}`}>
+          <button
+            className={activeFilter === "all" ? styles.activeButton : ""}
+            onClick={() => {
+              setActiveFilter("all");
+            }}
+          >
+            All
+          </button>
+          <button
+            className={activeFilter === "active" ? styles.activeButton : ""}
+            onClick={() => {
+              setActiveFilter("active");
+            }}
+          >
+            Active
+          </button>
+          <button
+            className={activeFilter === "completed" ? styles.activeButton : ""}
+            onClick={() => {
+              setActiveFilter("completed");
+            }}
+          >
+            Completed
+          </button>
         </div>
         <div>
           <p className={styles.info}>No tasks yet.Add one above!</p>
@@ -38,9 +58,11 @@ export default function Home() {
             return <p key={index}>{todo}</p>;
           })} */}
         </div>
-        <div>
-          <p></p>
-          <a href="">Pinecone academy</a>
+        <div className={styles.flexFooter}>
+          <p>Powered by </p>
+          <a className={styles.blueword} href="">
+            Pinecone academy
+          </a>
         </div>
       </div>
     </div>
