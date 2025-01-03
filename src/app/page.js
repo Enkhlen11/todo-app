@@ -1,14 +1,15 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
+import Tasks from "../components/task";
 
 export default function Home() {
-  const [todos, setTodos] = useState(["g"]);
+  const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
   const [activeFilter, setActiveFilter] = useState("all");
 
   const addTodoHandler = () => {
-    setTodos([...todos, newTodo]);
+    setTodos([...todos, { title: newTodo, isCompleted: false }]);
   };
 
   return (
@@ -54,6 +55,7 @@ export default function Home() {
         </div>
         <div>
           <p className={styles.info}>No tasks yet.Add one above!</p>
+          <Tasks todos={todos} setTodos={setTodos} />
           {/* {todos.map((todo, index) => {
             return <p key={index}>{todo}</p>;
           })} */}
