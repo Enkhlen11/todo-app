@@ -10,6 +10,7 @@
   font-size: 14px;
   gap: 10px;
   align-items: center;
+  justify-content: space-between;
 }
 .deleteButton {
   padding: 6px 12px;
@@ -21,4 +22,8 @@
 }
 .completed {
   text-decoration: line-through;
+}
+.checkBoxFlex {
+  display: flex;
+  gap: 10px;
 }

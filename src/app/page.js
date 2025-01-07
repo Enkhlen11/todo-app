@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 import Tasks from "../components/task";
+import FooterTask from "../components/footerTaskCompleted";
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
@@ -9,7 +10,13 @@ export default function Home() {
   const [activeFilter, setActiveFilter] = useState("all");
 
   const addTodoHandler = () => {
-    setTodos([...todos, { title: newTodo, isCompleted: false }]);
+    if (!newTodo) {
+      alert("Please enter task");
+      return;
+    } else {
+      setTodos([...todos, { title: newTodo, isCompleted: false }]);
+      setNewTodo("");
+    }
   };
 
   return (
@@ -18,6 +25,7 @@ export default function Home() {
         <h1>To-Do list</h1>
         <div className={styles.flex}>
           <input
+            value={newTodo}
             className={styles.input}
             type="text"
             placeholder="Add a new task"
@@ -56,10 +64,8 @@ export default function Home() {
         <div>
           <p className={styles.info}>No tasks yet.Add one above!</p>
           <Tasks todos={todos} setTodos={setTodos} />
-          {/* {todos.map((todo, index) => {
-            return <p key={index}>{todo}</p>;
-          })} */}
         </div>
+        <FooterTask />
         <div className={styles.flexFooter}>
           <p>Powered by </p>
           <a className={styles.blueword} href="">

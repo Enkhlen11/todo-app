@@ -25,7 +25,7 @@ const Tasks = ({ todos, setTodos }) => {
       {todos.map((todo, index) => {
         return (
           <div key={index} className={tasks.todoFlex}>
-            <div>
+            <div className={tasks.checkBoxFlex}>
               <input
                 onChange={(event) => {
                   handleCheckBox(index);
@@ -34,10 +34,11 @@ const Tasks = ({ todos, setTodos }) => {
                 name=""
                 id=""
               />
+              <p className={todo.isCompleted ? tasks.completed : "aa"}>
+                {todo.title}
+              </p>
             </div>
-            <p className={todo.isCompleted ? tasks.completed : "aa"}>
-              {todo.title}
-            </p>
+
             <button
               onClick={() => deleteHandler(index)}
               className={tasks.deleteButton}
