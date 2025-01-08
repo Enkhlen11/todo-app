@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   padding: 16px 0px 4px 0px;
+  font-size: 14px;
 }
 .btn {
   border: none;

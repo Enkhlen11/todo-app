@@ -35,6 +35,7 @@ export default function Home() {
             Add
           </button>
         </div>
+
         <div className={`${styles.flex} ${styles.allBtn}`}>
           <button
             className={activeFilter === "all" ? styles.activeButton : ""}
@@ -61,11 +62,15 @@ export default function Home() {
             Completed
           </button>
         </div>
+
         <div>
-          <p className={styles.info}>No tasks yet.Add one above!</p>
           <Tasks todos={todos} setTodos={setTodos} />
         </div>
-        <FooterTask />
+        {todos.length > 0 ? (
+          <FooterTask getTodos={todos} />
+        ) : (
+          <p className={styles.info}>No tasks yet.Add one above!</p>
+        )}
         <div className={styles.flexFooter}>
           <p>Powered by </p>
           <a className={styles.blueword} href="">
