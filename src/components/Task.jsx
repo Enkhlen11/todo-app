@@ -2,7 +2,7 @@ import tasks from "../style/task.module.css";
 // const functionName = ()=>{}
 //function functionName(){}
 
-const Tasks = ({ todos, setTodos }) => {
+const Tasks = ({ todos, setTodos, filteredTodos }) => {
   function deleteHandler(index) {
     const userConfirmed = confirm(
       "Are you sure you want to delete this task ?"
@@ -22,7 +22,7 @@ const Tasks = ({ todos, setTodos }) => {
 
   return (
     <div className={tasks.newTodo}>
-      {todos.map((todo, index) => {
+      {filteredTodos.map((todo, index) => {
         return (
           <div key={index} className={tasks.todoFlex}>
             <div className={tasks.checkBoxFlex}>

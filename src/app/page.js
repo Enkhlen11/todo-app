@@ -18,6 +18,11 @@ export default function Home() {
       setNewTodo("");
     }
   };
+  const filteredTodos = todos.filter((todo) => {
+    if (activeFilter === "completed") return todo.isCompleted;
+    if (activeFilter === "active") return !todo.isCompleted;
+    return true;
+  });
 
   return (
     <div className={styles["body-width"]}>
@@ -64,10 +69,14 @@ export default function Home() {
         </div>
 
         <div>
-          <Tasks todos={todos} setTodos={setTodos} />
+          <Tasks
+            todos={todos}
+            setTodos={setTodos}
+            filteredTodos={filteredTodos}
+          />
         </div>
         {todos.length > 0 ? (
-          <FooterTask getTodos={todos} />
+          <FooterTask todos={todos} />
         ) : (
           <p className={styles.info}>No tasks yet.Add one above!</p>
         )}

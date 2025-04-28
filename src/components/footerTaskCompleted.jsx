@@ -1,11 +1,11 @@
 import footerTask from "../style/footerTask.module.css";
 
-export default function FooterTask({ getTodos }) {
+export default function FooterTask({ todos }) {
   return (
     <div className={footerTask.lineFlex}>
       <p>
-        {getTodos.filter((todo) => todo.isCompleted).length} of
-        {getTodos.length} tasks completed
+        {todos.filter((todo) => todo.isCompleted).length} of
+        {todos.length} tasks completed
       </p>
       <button className={footerTask.btn}>Clear Completed</button>
     </div>
