@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
-import Tasks from "../components/task";
+import Tasks from "../components/Task";
 import FooterTask from "../components/footerTaskCompleted";
 
 export default function Home() {

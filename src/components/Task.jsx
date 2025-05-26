@@ -1,7 +1,4 @@
 import tasks from "../style/task.module.css";
-// const functionName = ()=>{}
-//function functionName(){}
-
 const Tasks = ({ todos, setTodos, filteredTodos }) => {
   function deleteHandler(index) {
     const userConfirmed = confirm(
@@ -17,9 +14,6 @@ const Tasks = ({ todos, setTodos, filteredTodos }) => {
     setTodos([...todos]);
     console.log(todos);
   };
-  //["hiisen ym", "hiih ym"]
-  //[{title:"hiisen ym", isCompleted:fasle}]
-
 
   return (
     <div className={tasks.newTodo}>
