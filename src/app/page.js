@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import styles from "./page.module.css";
-import Tasks from "../components/Task";
 import FooterTask from "../components/footerTaskCompleted";
+import Tasks from "@/components/Task";
 
 export default function Home() {
   const [todos, setTodos] = useState([]);
