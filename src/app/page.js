@@ -76,7 +76,7 @@ export default function Home() {
           />
         </div>
         {todos.length > 0 ? (
-          <FooterTask todos={todos} />
+          <FooterTask todos={todos} setTodos={setTodos}/>
         ) : (
           <p className={styles.info}>No tasks yet.Add one above!</p>
         )}

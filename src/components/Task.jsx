@@ -8,8 +8,8 @@ const Tasks = ({ todos, setTodos, filteredTodos }) => {
       "Are you sure you want to delete this task ?"
     );
     if (userConfirmed) {
-      todos.splice(index, 1);
-      setTodos([...todos]);
+      const newTodos=todos.filter((_,i)=>i !==index);
+      setTodos([newTodos]);
     }
   }
   const handleCheckBox = (index) => {
@@ -19,6 +19,7 @@ const Tasks = ({ todos, setTodos, filteredTodos }) => {
   };
   //["hiisen ym", "hiih ym"]
   //[{title:"hiisen ym", isCompleted:fasle}]
+
 
   return (
     <div className={tasks.newTodo}>
@@ -31,7 +32,7 @@ const Tasks = ({ todos, setTodos, filteredTodos }) => {
                   handleCheckBox(index);
                 }}
                 type="checkbox"
-                name=""
+                checked={todo.isCompleted}
                 id=""
               />
               <p className={todo.isCompleted ? tasks.completed : "aa"}>
